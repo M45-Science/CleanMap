@@ -1,0 +1,8 @@
+{
+  "name": "CleanMap",
+  "description": "Delete chunks which contain no player entities, configurable chunk radius & paving detection",
+  "version": "0.0.2",
+  "title": "CleanMap",
+  "author": "Distortions864",
+  "factorio_version": "1.0"
+}
