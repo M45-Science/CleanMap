@@ -1,7 +1,7 @@
 {
   "name": "CleanMap",
   "description": "Deletes chunks that don't have anything built on them, on all game surfaces.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "title": "CleanMap",
   "author": "Distortions864",
   "factorio_version": "1.1"
