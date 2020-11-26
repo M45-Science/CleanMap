@@ -10,7 +10,11 @@ function remote_doit(who, args)
 		keep_paving = args.paving
 	end
 
-	doit(who, target_surface, radius, keep_paving)
+	for _, surf in pairs(game.surfaces) do
+		if surf.name ~= "aai-signals" then --Compatibility with aai-signals
+			doit(player.name, surf.name, radius, keep_paving)
+		end
+	end
 end
 
 function doit(who, target_surface, radius, keep_paving)
