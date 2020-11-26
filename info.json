@@ -1,6 +1,6 @@
 {
   "name": "CleanMap",
-  "description": "Delete chunks which contain no player entities, configurable chunk radius & paving detection",
+  "description": "Deletes chunks that don't have anything built on them, on all game surfaces.",
   "version": "0.0.3",
   "title": "CleanMap",
   "author": "Distortions864",

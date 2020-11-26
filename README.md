@@ -1,4 +1,2 @@
 # CleanMap
-Factorio mod: Delete chunks which contain no player entities.
-
-Useful for slimming down save files and recovering lost performance from fruitless exploration. Can configure radius of adjacent chunks to keep and toggle keeping chunks with paving
+Deletes chunks that don't have anything built on them, on all game surfaces.
