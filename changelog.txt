@@ -1,6 +1,13 @@
+Version: 0.0.5
+Date: 2020-11-27
+   - Updated alien-biomes tileset
+   - Added delete-radars option (default off)
+   - Updated list of compatable mods
+---------------------------------------------------------------------------------------------------
 Version: 0.0.4
 Date: 2020-11-26
    - Updated console command, icon and description.
+   - Deletes game-replay data, setting added (default on)
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.3
 Date: 2020-11-26

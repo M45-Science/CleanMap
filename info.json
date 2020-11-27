@@ -1,8 +1,20 @@
 {
   "name": "CleanMap",
-  "description": "Deletes chunks that don't have anything built on them, on all game surfaces.",
-  "version": "0.0.4",
+  "description": "Deletes chunks that don't have anything built on them, on all game surfaces.\nModifications, for compatability with:\naai-signals, rso-mod, alien-biomes, space-exploration, Krastorio2 and Mining_Drones",
+  "version": "0.0.5",
   "title": "CleanMap",
   "author": "Distortions864",
-  "factorio_version": "1.1"
+  "homepage": "https://discord.gg/Ps2jnm7",
+  "contact": "https://discord.gg/Ps2jnm7",
+  "factorio_version": "1.1",
+  "dependencies":
+  [
+      "base >= 1.0.0",	
+		  "? aai-signals",
+      "? rso-mod",
+      "? alien-biomes",
+      "? space-exploration",
+      "? Krastorio2",
+      "? Mining_Drones"
+	]
 }

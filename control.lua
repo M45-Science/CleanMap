@@ -18,6 +18,35 @@ function remote_doit(who, args)
 end
 
 function doit(who, target_surface, radius, keep_paving)
+	-- Verify surface exists
+	local surface = nil
+	local surface_list = {}
+	for _, candidate in pairs(game.surfaces) do
+		table.insert(surface_list, candidate.name)
+		if candidate.name == target_surface then
+			surface = candidate
+		end
+	end
+
+	--Can't find surface, exit
+	if surface == nil then
+		return
+	end
+
+	--Delete replay, if option enabled
+	local delete_replay = settings.global["CleanMap_replay"].value
+	if delete_replay then
+		game.disable_replay()
+	end
+
+	--Delete radars, if option enabled
+	local delete_radar = settings.global["CleanMap_radar"].value
+	if delete_radar then
+		for key, entity in pairs(surface.find_entities_filtered({type = "radar"})) do
+			entity.destroy()
+		end
+	end
+
 	-- Get list of possible paving
 	local paving = {}
 	local paving_base = {
@@ -53,16 +82,6 @@ function doit(who, target_surface, radius, keep_paving)
 	end
 	if #playerForceNames > 1 then
 		printAll({"CleanMap_text_force", table_to_csv(playerForceNames)})
-	end
-
-	-- Verify surface exists
-	local surface = nil
-	local surface_list = {}
-	for _, candidate in pairs(game.surfaces) do
-		table.insert(surface_list, candidate.name)
-		if candidate.name == target_surface then
-			surface = candidate
-		end
 	end
 
 	-- Let the players know what is happening
@@ -194,7 +213,7 @@ function getPavingTiles()
 		table.insert(ground, v)
 	end
 
-	-- Ignored tileset for "Alien Biome" exported from 0.4.15
+	-- Ignored tileset for "Alien Biome" exported from 0.4.15 (updated to 0.6.1)
 	-- Paving: none
 	local AlienBiomes_tiles = {
 		"frozen-snow-0",
@@ -204,6 +223,7 @@ function getPavingTiles()
 		"frozen-snow-4",
 		"frozen-snow-5",
 		"frozen-snow-6",
+		--"From "Alien Biome" 0.6.1
 		"frozen-snow-7",
 		"frozen-snow-8",
 		"frozen-snow-9",
@@ -213,6 +233,10 @@ function getPavingTiles()
 		"mineral-aubergine-dirt-4",
 		"mineral-aubergine-dirt-5",
 		"mineral-aubergine-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-aubergine-dirt-7",
+		"mineral-aubergine-dirt-8",
+		"mineral-aubergine-dirt-9",
 		"mineral-aubergine-sand-1",
 		"mineral-aubergine-sand-2",
 		"mineral-aubergine-sand-3",
@@ -222,6 +246,10 @@ function getPavingTiles()
 		"mineral-beige-dirt-4",
 		"mineral-beige-dirt-5",
 		"mineral-beige-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-beige-dirt-7",
+		"mineral-beige-dirt-8",
+		"mineral-beige-dirt-9",
 		"mineral-beige-sand-1",
 		"mineral-beige-sand-2",
 		"mineral-beige-sand-3",
@@ -231,6 +259,10 @@ function getPavingTiles()
 		"mineral-black-dirt-4",
 		"mineral-black-dirt-5",
 		"mineral-black-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-black-dirt-7",
+		"mineral-black-dirt-8",
+		"mineral-black-dirt-9",
 		"mineral-black-sand-1",
 		"mineral-black-sand-2",
 		"mineral-black-sand-3",
@@ -240,6 +272,10 @@ function getPavingTiles()
 		"mineral-brown-dirt-4",
 		"mineral-brown-dirt-5",
 		"mineral-brown-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-brown-dirt-7",
+		"mineral-brown-dirt-8",
+		"mineral-brown-dirt-9",
 		"mineral-brown-sand-1",
 		"mineral-brown-sand-2",
 		"mineral-brown-sand-3",
@@ -249,6 +285,10 @@ function getPavingTiles()
 		"mineral-cream-dirt-4",
 		"mineral-cream-dirt-5",
 		"mineral-cream-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-cream-dirt-7",
+		"mineral-cream-dirt-8",
+		"mineral-cream-dirt-9",
 		"mineral-cream-sand-1",
 		"mineral-cream-sand-2",
 		"mineral-cream-sand-3",
@@ -258,6 +298,10 @@ function getPavingTiles()
 		"mineral-dustyrose-dirt-4",
 		"mineral-dustyrose-dirt-5",
 		"mineral-dustyrose-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-dustyrose-dirt-7",
+		"mineral-dustyrose-dirt-8",
+		"mineral-dustyrose-dirt-9",
 		"mineral-dustyrose-sand-1",
 		"mineral-dustyrose-sand-2",
 		"mineral-dustyrose-sand-3",
@@ -267,6 +311,10 @@ function getPavingTiles()
 		"mineral-grey-dirt-4",
 		"mineral-grey-dirt-5",
 		"mineral-grey-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-grey-dirt-7",
+		"mineral-grey-dirt-8",
+		"mineral-grey-dirt-9",
 		"mineral-grey-sand-1",
 		"mineral-grey-sand-2",
 		"mineral-grey-sand-3",
@@ -276,6 +324,10 @@ function getPavingTiles()
 		"mineral-purple-dirt-4",
 		"mineral-purple-dirt-5",
 		"mineral-purple-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-purple-dirt-7",
+		"mineral-purple-dirt-8",
+		"mineral-purple-dirt-9",
 		"mineral-purple-sand-1",
 		"mineral-purple-sand-2",
 		"mineral-purple-sand-3",
@@ -285,6 +337,10 @@ function getPavingTiles()
 		"mineral-red-dirt-4",
 		"mineral-red-dirt-5",
 		"mineral-red-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-red-dirt-7",
+		"mineral-red-dirt-8",
+		"mineral-red-dirt-9",
 		"mineral-red-sand-1",
 		"mineral-red-sand-2",
 		"mineral-red-sand-3",
@@ -294,6 +350,10 @@ function getPavingTiles()
 		"mineral-tan-dirt-4",
 		"mineral-tan-dirt-5",
 		"mineral-tan-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-tan-dirt-7",
+		"mineral-tan-dirt-8",
+		"mineral-tan-dirt-9",
 		"mineral-tan-sand-1",
 		"mineral-tan-sand-2",
 		"mineral-tan-sand-3",
@@ -303,6 +363,10 @@ function getPavingTiles()
 		"mineral-violet-dirt-4",
 		"mineral-violet-dirt-5",
 		"mineral-violet-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-violet-dirt-7",
+		"mineral-violet-dirt-8",
+		"mineral-violet-dirt-9",
 		"mineral-violet-sand-1",
 		"mineral-violet-sand-2",
 		"mineral-violet-sand-3",
@@ -312,6 +376,10 @@ function getPavingTiles()
 		"mineral-white-dirt-4",
 		"mineral-white-dirt-5",
 		"mineral-white-dirt-6",
+		--"From "Alien Biome" 0.6.1
+		"mineral-white-dirt-7",
+		"mineral-white-dirt-8",
+		"mineral-white-dirt-9",
 		"mineral-white-sand-1",
 		"mineral-white-sand-2",
 		"mineral-white-sand-3",
@@ -573,6 +641,9 @@ remote.add_interface(
 		end,
 		getPaving = function()
 			return settings.global["CleanMap_paving"].value
+		end,
+		getPaving = function()
+			return settings.global["CleanMap_replay"].value
 		end,
 		CleanMap = remote_doit
 	}
