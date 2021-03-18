@@ -1,0 +1,41 @@
+Version: 0.0.9
+Date: 2021-03-17
+   - Skip spaceships in space-exploration
+---------------------------------------------------------------------------------------------------
+Version: 0.0.8
+Date: 2021-01-16
+   - Release of 0.0.7 for Factorio 1.1
+   
+Version: 0.0.7
+Date: 2021-01-16
+   - Fixes the /cleanmap command
+   - Release for Factorio 1.0
+   - Clears empty surfaces
+
+Version: 0.0.6
+Date: 2020-11-30
+   - Added nuclear-ground (from nuclear bombs) to tile set
+---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+Date: 2020-11-27
+   - Updated alien-biomes tileset
+   - Added delete-radars option (default off)
+   - Updated list of compatible mods
+---------------------------------------------------------------------------------------------------
+Version: 0.0.4
+Date: 2020-11-26
+   - Updated console command, icon and description.
+   - Deletes game-replay data, setting added (default on)
+---------------------------------------------------------------------------------------------------
+Version: 0.0.3
+Date: 2020-11-26
+   - Update for Factorio 1.1
+---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+Date: 2020-11-21
+   - Skips "aai-signals" surface, for compatibility.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2020-10-16
+    - Initial release
+---------------------------------------------------------------------------------------------------
