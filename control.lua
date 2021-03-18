@@ -11,7 +11,8 @@ function remote_doit(who, args)
 	end
 
 	for _, surf in pairs(game.surfaces) do
-		if surf.name ~= "aai-signals" then --Compatibility with aai-signals
+		--Compatibility with aai-signals, and space-exploration
+		if surf.name ~= "aai-signals" and not string.match( string.lower(surf.name), "spaceship") then
 			if surf.count_entities_filtered{force="player"} <= 0 then
 				game.print("Cleared: "..surf.name)
 				surf.clear(false)
@@ -723,8 +724,13 @@ do ---- Init ----
 					local keep_paving = settings.global["CleanMap_paving"].value
 					for _, surf in pairs(game.surfaces) do
 						--Compatibility with aai-signals, and space-exploration
-						if surf.name ~= "aai-signals" and not string.match(surf.name , "spaceship") then
-							doit(player.name, surf.name, radius, keep_paving)
+						if surf.name ~= "aai-signals" and not string.match( string.lower(surf.name), "spaceship") then
+							if surf.count_entities_filtered{force="player"} <= 0 then
+								game.print("Cleared: "..surf.name)
+								surf.clear(false)
+							else
+								doit(player.name, surf.name, radius, keep_paving)
+							end
 						end
 					end
 				else
