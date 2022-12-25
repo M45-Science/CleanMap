@@ -1,7 +1,7 @@
 {
   "name": "CleanMap",
-  "description": "Deletes chunks that don't have anything built on them, on all game surfaces.\nModifications, for compatability with:\naai-signals, rso-mod, alien-biomes, space-exploration, Krastorio2 and Mining_Drones",
-  "version": "0.0.9",
+  "description": "Map cleaning functions to increase UPS.",
+  "version": "0.1.0",
   "title": "CleanMap",
   "author": "Distortions864",
   "homepage": "https://discord.gg/Ps2jnm7",

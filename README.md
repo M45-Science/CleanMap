@@ -2,6 +2,10 @@
 # CleanMap
 
 Deletes chunks that don't have anything built on them, on all game surfaces.
+Modified for M45 Factorio servers.
+https://m45sci.xyz/
 
-Modifications, for compatability with:
-aai-signals, rso-mod, alien-biomes, space-exploration, Krastorio2 and Mining_Drones
+Options to change clean radius, delete replay data, delete radars and to delete biters/pollution.
+
+(Based on DeleteEmptyChunks mod)
+https://mods.factorio.com/mod/DeleteEmptyChunks

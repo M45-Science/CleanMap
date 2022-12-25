@@ -1,3 +1,8 @@
+
+Version: 0.1.0
+Date: 2021-03-17
+   - Added disable biters and pollution option
+---------------------------------------------------------------------------------------------------
 Version: 0.0.9
 Date: 2021-03-17
    - Skip spaceships in space-exploration
