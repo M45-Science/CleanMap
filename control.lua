@@ -69,8 +69,10 @@ function doit(who, target_surface, radius, keep_paving)
         game.map_settings.pollution.enabled = false
 
         local mgs = surface.map_gen_settings
-        mgs.autoplace_controls["enemy-base"].size = "none"
-        surface.map_gen_settings = mgs
+        if msg and mgs.autoplace_controls["enemy-base"] then
+            mgs.autoplace_controls["enemy-base"].size = "none"
+            surface.map_gen_settings = mgs
+        end
     end
 
     -- Get list of possible paving

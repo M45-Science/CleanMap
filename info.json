@@ -1,11 +1,11 @@
 {
   "name": "CleanMap",
   "description": "Map cleaning functions to increase UPS.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "CleanMap",
   "author": "Distortions864",
-  "homepage": "https://discord.gg/Ps2jnm7",
-  "contact": "https://discord.gg/Ps2jnm7",
+  "homepage": "https://m45sci.xyz/",
+  "contact": "https://m45sci.xyz/",
   "factorio_version": "1.1",
   "dependencies":
   [
